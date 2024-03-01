@@ -1,35 +1,44 @@
 import math
 
-def scientific_calculator(function):
-    if function == "square root":
-        return square_root
+def scientific_calculator(x,function):
+    if function == "sqr_rt":
+        return square_root(x)
     elif function == "factorial":
-        return factorial
-    elif function == "absolute_value":
-        return abs_value
+        return fact(x)
+    elif function == "abs_value":
+        return absolute_value(x)
+    elif function == "c_root":
+        return cube_root(x)
 
     
 square_root = lambda x: math.sqrt(x)
-factorial = lambda x: math.factorial(x)
-abs_value = lambda x: abs(x)
+fact = lambda x: math.factorial(x)
+absolute_value = lambda x: abs(x)
+cube_root = lambda x: math.cbrt(x)
 
 #calculator - scientific
-print(f"Square root of 64  = {square_root(64)}")
-print(f"5! = {factorial(5)}")
-print(f"Absolute value of -6  = |-6| = {abs_value(-6)}")
+sqr = scientific_calculator(64,"sqr_rt")
+fac = scientific_calculator(5,"factorial")
+absolute_v = scientific_calculator(-6,"abs_value")
+cb_root = scientific_calculator(125,"c_root")
+
+print(f"Square root of 64  = {sqr}")
+print(f"5! = {fac}")
+print(f"Absolute value of -6  = |-6| = {absolute_v}")
+print(f"Cube root of 125 = {cb_root}")
 print()
 
 
 def basic_calculator(x,operand,y):
     if operand == "+":
-        return add
+        return add(x,y)
     elif operand == "-":
-        return subtract
+        return subtract(x,y)
     elif operand == "*":
-        return multiply
+        return multiply(x,y)
     elif operand == "/":
         if y != 0:
-            return divide
+            return divide(x,y)
         else:
             return "can not divide by 0!"       
 
@@ -39,8 +48,14 @@ subtract = lambda x,y: x - y
 multiply = lambda x,y: x * y
 divide = lambda x,y: x // y 
 
+a = basic_calculator(16,"+",4)
+s = basic_calculator(16,"-",4)
+m = basic_calculator(16,"*",4)
+d = basic_calculator(16,"/",4)
+
+
 #calculator - basic
-print(f"16 + 4 = {add(16,4)}")
-print(f"16 - 4 = {subtract(16,4)}")
-print(f"16 * 4 = {multiply(16,4)}")
-print(f"16 / 4 = {divide(16,4)}")
+print(f"16 + 4 = {a}")
+print(f"16 - 4 = {s}")
+print(f"16 * 4 = {m}")
+print(f"16 / 4 = {d}")
